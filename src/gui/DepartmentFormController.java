@@ -54,7 +54,7 @@ public class DepartmentFormController implements Initializable {
 		this.service = service;
 	}
 	
-	public void subscribeDataChangeListener(DataChangeListener listener) {
+	public void subscribeDataChangeListener(DataChangeListener listener) { //método para adicionar listener a lista
 		dataChangeListeners.add(listener);
 	}
 	
@@ -80,7 +80,7 @@ public class DepartmentFormController implements Initializable {
 		}
 	}
 	
-	private void notifyDataChangeListeners() {
+	private void notifyDataChangeListeners() { //método de notificação
 		for (DataChangeListener listener : dataChangeListeners) {
 			listener.onDataChanged();
 		}
