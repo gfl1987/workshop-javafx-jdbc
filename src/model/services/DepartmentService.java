@@ -14,7 +14,7 @@ public class DepartmentService {
 		return dao.findAll();
 	}
 
-	public void saveOrUpdate(Department obj) {
+	public void saveOrUpdate(Department obj) { //método que insere ou atualiza informações no Departamento
 		if (obj.getId() == null) {
 			dao.insert(obj);
 		} else {
