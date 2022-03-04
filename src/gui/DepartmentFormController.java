@@ -128,7 +128,7 @@ public class DepartmentFormController implements Initializable {
 		txtName.setText(entity.getName());
 	}
 	
-	private void setErrorMessages(Map<String, String> errors) {
+	private void setErrorMessages(Map<String, String> errors) { //metodo com a mensagem de erro
 		Set<String> fields = errors.keySet();
 		
 		if (fields.contains("name")) {
