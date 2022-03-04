@@ -1,6 +1,7 @@
 package gui;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -41,7 +42,16 @@ public class SellerListController implements Initializable, DataChangeListener {
 
 	@FXML
 	private TableColumn<Seller, String> tableColumnName; // referencia da coluna Name
-
+	
+	@FXML
+	private TableColumn<Seller, String> tableColumnEmail; // referencia da coluna Email
+	
+	@FXML
+	private TableColumn<Seller, Date> tableColumnBirthDate; // referencia da coluna Data de nascimento
+	
+	@FXML
+	private TableColumn<Seller, Double> tableColumnBaseSalary; // referencia da coluna Salario
+	
 	@FXML
 	private TableColumn<Seller, Seller> tableColumnEDIT;
 
@@ -73,7 +83,12 @@ public class SellerListController implements Initializable, DataChangeListener {
 	private void initializeNodes() { // comportamento das colunas id e name
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-
+		tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+		tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+		Utils.formatTableColumnDate(tableColumnBirthDate, "dd/MM/yyyy");
+		tableColumnBaseSalary.setCellValueFactory(new PropertyValueFactory<>("baseSalary"));
+		Utils.formatTableColumnDouble(tableColumnBaseSalary, 2);
+		
 		Stage stage = (Stage) Main.getMainScene().getWindow(); // referencia que redimenciona a tabela de acordo com a
 																// janela
 		tableViewSeller.prefHeightProperty().bind(stage.heightProperty());
